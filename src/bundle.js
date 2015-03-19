@@ -18288,7 +18288,7 @@ module.exports = require('./lib/React');
 },{"./lib/React":"c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\node_modules\\react\\lib\\React.js"}],"c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\app.js":[function(require,module,exports){
 var React = require('react');
 
-var App = require('./components/App.js');
+var App = require('components/App.js');
 
 React.render(
   React.createElement(App, null),
@@ -18296,10 +18296,41 @@ React.render(
 );
 
 
-},{"./components/App.js":"c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\App.js","react":"c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\node_modules\\react\\react.js"}],"c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\App.js":[function(require,module,exports){
+},{"components/App.js":"c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\App.js","react":"c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\node_modules\\react\\react.js"}],"c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\common\\shuffle.js":[function(require,module,exports){
+/**
+ * @name Shuffle
+ * @description Fisher—Yates shuffle (http://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle)
+ */
+
+function Shuffle(array) {
+  var array_length = array.length, random_index, current_element;
+
+  if (typeof array !== 'object' || array_length === undefined) {
+    return array;
+  }
+
+  while (array_length) {
+    random_index = Math.floor(Math.random() * array_length--);
+
+    current_element = array[array_length];
+
+    // swap random element with current element
+    array[array_length] = array[random_index];
+    array[random_index] = current_element;
+  }
+
+  return array;
+}
+
+module.exports = Shuffle;
+
+
+},{}],"c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\App.js":[function(require,module,exports){
 var React = require('react');
-var Header = require('./Header.js');
-var Footer = require('./Footer.js');
+
+var Header = require('components/Header.js');
+var Footer = require('components/Footer.js');
+var Works = require('components/work/Works.js');
 
 var App = React.createClass({displayName: "App",
   render: function () {
@@ -18308,7 +18339,7 @@ var App = React.createClass({displayName: "App",
         React.createElement(Header, null), 
 
         React.createElement("div", {id: "main"}, 
-          "You got to be kitten me."
+          React.createElement(Works, null)
         ), 
 
         React.createElement(Footer, null)
@@ -18320,7 +18351,7 @@ var App = React.createClass({displayName: "App",
 module.exports = App;
 
 
-},{"./Footer.js":"c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\Footer.js","./Header.js":"c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\Header.js","react":"c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\node_modules\\react\\react.js"}],"c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\Footer.js":[function(require,module,exports){
+},{"components/Footer.js":"c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\Footer.js","components/Header.js":"c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\Header.js","components/work/Works.js":"c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\work\\Works.js","react":"c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\node_modules\\react\\react.js"}],"c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\Footer.js":[function(require,module,exports){
 var React = require('react');
 
 var Footer = React.createClass({displayName: "Footer",
@@ -18348,4 +18379,108 @@ var Header = React.createClass({displayName: "Header",
 module.exports = Header;
 
 
-},{"react":"c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\node_modules\\react\\react.js"}]},{},["c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\app.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\App.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\Footer.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\Header.js"]);
+},{"react":"c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\node_modules\\react\\react.js"}],"c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\work\\Work.js":[function(require,module,exports){
+var React = require('react');
+
+var Work = React.createClass({displayName: "Work",
+  render: function () {
+    return (
+      React.createElement("li", null, 
+        React.createElement("figure", null, 
+          React.createElement("h3", null, this.props.work.name), 
+
+          React.createElement("figcaption", null, this.props.work.description)
+        )
+      )
+    );
+  }
+});
+
+module.exports = Work;
+
+
+},{"react":"c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\node_modules\\react\\react.js"}],"c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\work\\Works.js":[function(require,module,exports){
+var React = require('react');
+
+var Work = require('components/work/Work.js');
+
+var shuffle = require('common/shuffle.js');
+
+var Works = React.createClass({displayName: "Works",
+  getInitialState: function () {
+    return {
+      limit: 6,
+      works: []
+    }
+  },
+
+  componentDidMount: function () {
+    $.ajax({
+      url: 'data/works.json',
+      method: 'GET',
+
+      success: function (data, textStatus, jqXHR) {
+        data = shuffle(data);
+
+        this.setState({works: data});
+      }.bind(this)
+    });
+  },
+
+  render: function () {
+    var works = this.getWorks();
+
+    var show_all_button = this.getShowAllButton();
+
+    return (
+      React.createElement("section", null, 
+        React.createElement("h2", null, "Featured Work"), 
+        React.createElement("h3", null, "Work—Fun—Code"), 
+
+        React.createElement("ul", null, 
+          works
+        ), 
+
+        show_all_button
+      )
+    );
+  },
+
+  getShowAllButton: function () {
+    var show_all_button;
+
+    if (this.state.limit === this.state.works.length) {
+      show_all_button = null;
+    } else {
+      show_all_button = (
+        React.createElement("button", {type: "button", onClick: this.showAll}, "Show All")
+      );
+    }
+
+    return show_all_button;
+  },
+
+  getWorks: function () {
+    var works = [],
+        works_length = this.state.works.length;
+
+    if (works_length === 0) {
+      return null;
+    }
+
+    for (var i = 0; i < this.state.limit; i++) {
+      works.push(React.createElement(Work, {work: this.state.works[i], key: this.state.works[i].id}));
+    }
+
+    return works;
+  },
+
+  showAll: function (event) {
+    this.setState({limit: this.state.works.length});
+  }
+});
+
+module.exports = Works;
+
+
+},{"common/shuffle.js":"c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\common\\shuffle.js","components/work/Work.js":"c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\work\\Work.js","react":"c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\node_modules\\react\\react.js"}]},{},["c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\app.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\common\\shuffle.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\App.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\Footer.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\Header.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\work\\Work.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\work\\Works.js"]);

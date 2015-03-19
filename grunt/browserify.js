@@ -6,6 +6,12 @@ module.exports = function (grunt) {
       },
 
       options: {
+        browserifyOptions: {
+          paths: [
+            'src/js'
+          ]
+        },
+
         transform: [
           'reactify'
         ],

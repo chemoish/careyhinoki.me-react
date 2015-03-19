@@ -1,6 +1,8 @@
 var React = require('react');
-var Header = require('./Header.js');
-var Footer = require('./Footer.js');
+
+var Header = require('components/Header.js');
+var Footer = require('components/Footer.js');
+var Works = require('components/work/Works.js');
 
 var App = React.createClass({
   render: function () {
@@ -9,7 +11,7 @@ var App = React.createClass({
         <Header />
 
         <div id="main">
-          You got to be kitten me.
+          <Works />
         </div>
 
         <Footer />

@@ -6,6 +6,7 @@ module.exports = function (grunt) {
         dest: 'tmp',
         expand: true,
         src: [
+          'data/*',
           'index.html',
           'bundle.js'
         ]
