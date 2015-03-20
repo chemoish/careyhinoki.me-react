@@ -1,0 +1,39 @@
+[{
+    "id": "poker-clock",
+    "name": "Poker Clock",
+    "img": "img/play/poker-clock.png",
+    "tags": [
+        "HTML & CSS",
+        "Javascript"
+    ],
+    "website": "//codepen.io/chemoish/full/gzcdo"
+}, {
+    "id": "tic-tac-toe",
+    "name": "Tic-tac-toe",
+    "img": "img/play/tic-tac-toe.png",
+    "tags": [
+        "HTML & CSS",
+        "Javascript"
+    ],
+    "website": "//codepen.io/chemoish/full/hDlEc"
+}, {
+    "id": "form-validation",
+    "name": "Bootstrap 2.3.2 - Validate",
+    "img": "img/play/form-validation.png",
+    "tags": [
+        "HTML & CSS",
+        "Javascript",
+        "Twitter Bootstrap 2.3.2"
+    ],
+    "website": "//codepen.io/chemoish/full/sEdAl"
+}, {
+    "id": "pics-hackathon-2013",
+    "name": "PICS Hackathon 2013",
+    "img": "img/play/pics-hackathon-2013.png",
+    "tags": [
+        "HTML & CSS",
+        "Javascript",
+        "Twitter Bootstrap 2.3.2"
+    ],
+    "website": "//s3.amazonaws.com/uploads.hipchat.com/22795/129200/2r27uzl5scws580/Voltron.m4v"
+}]
