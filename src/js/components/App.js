@@ -1,8 +1,14 @@
 var React = require('react');
 
-var Header = require('components/Header.js');
-var Footer = require('components/Footer.js');
-var Works = require('components/work/Works.js');
+var AboutSection      = require('components/about/AboutSection.js');
+var ContactSection    = require('components/contact/ContactSection.js');
+var CuriositySection  = require('components/curiosity/CuriositySection.js');
+var Footer            = require('components/Footer.js');
+var Header            = require('components/Header.js');
+var Introduction      = require('components/introduction/Introduction.js');
+var PlaySection       = require('components/play/PlaySection.js');
+var TechnologySection = require('components/technology/TechnologySection.js');
+var WorkSection       = require('components/work/WorkSection.js');
 
 var App = React.createClass({
   render: function () {
@@ -11,7 +17,19 @@ var App = React.createClass({
         <Header />
 
         <div id="main">
-          <Works />
+          <Introduction />
+
+          <WorkSection />
+
+          <AboutSection />
+
+          <TechnologySection />
+
+          <CuriositySection />
+
+          <PlaySection />
+
+          <ContactSection />
         </div>
 
         <Footer />

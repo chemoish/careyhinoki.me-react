@@ -20,14 +20,19 @@ module.exports = function (grunt) {
   grunt.loadTasks('grunt');
 
   grunt.registerTask('default', 'Running development environment…', [
-    'clean',
     'build',
     'connect',
     'watch'
   ]);
 
   grunt.registerTask('build', 'Running development tasks…', [
+    'clean',
     'browserify',
     'copy'
+  ]);
+
+  grunt.registerTask('pages', 'Running pages tasks…', [
+    'build',
+    'gh-pages'
   ]);
 };
