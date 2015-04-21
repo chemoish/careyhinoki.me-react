@@ -1,0 +1,120 @@
+/**
+ * Careyhinoki.Me-React v0.0.0
+ *
+ * @author: Carey Hinoki <carey.hinoki@gmail.com>
+ * @date: 2015-04-20
+ */
+
+
+/**
+ * @name Mixins
+ * @description
+ *
+ */
+/**
+ * @name Colors
+ * @description
+ *
+ */
+/**
+ * @name Font Size
+ * @description
+ *
+ */
+/**
+ * @name Font Weight
+ * @description
+ *
+ */
+/**
+ * @name Z-index
+ * @description
+ *
+ */
+/**
+ * @name Base
+ * @description
+ * Using Foundation 5 defaults
+ */
+/* line 9, ../../src/style/component/_base.scss */
+html,
+body {
+  height: 100%;
+}
+
+/* line 15, ../../src/style/component/_base.scss */
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 24, ../../src/style/component/_base.scss */
+html,
+body {
+  font-size: 100%;
+}
+
+/* line 30, ../../src/style/component/_base.scss */
+body {
+  background: #fff;
+  color: #222222;
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.5;
+  position: relative;
+  cursor: auto;
+}
+
+/* line 44, ../../src/style/component/_base.scss */
+a:hover {
+  cursor: pointer;
+}
+
+/* line 49, ../../src/style/component/_base.scss */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* line 55, ../../src/style/component/_base.scss */
+img {
+  -ms-interpolation-mode: bicubic;
+}
+
+/* line 60, ../../src/style/component/_base.scss */
+#map_canvas img,
+#map_canvas embed,
+#map_canvas object,
+.map_canvas img,
+.map_canvas embed,
+.map_canvas object {
+  max-width: none !important;
+}
+
+/* line 70, ../../src/style/component/_base.scss */
+img {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* line 76, ../../src/style/component/_base.scss */
+textarea {
+  height: auto;
+  min-height: 50px;
+}
+
+/* line 82, ../../src/style/component/_base.scss */
+select {
+  width: 100%;
+}
+
+/* line 89, ../../src/style/component/_base.scss */
+figure {
+  margin: 0;
+}

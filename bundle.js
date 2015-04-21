@@ -18386,15 +18386,40 @@ module.exports = Footer;
 },{"react":"c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\node_modules\\react\\react.js"}],"c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\Header.js":[function(require,module,exports){
 var React = require('react');
 
+var Navigation = require('components/Navigation.js');
+
 var Header = React.createClass({displayName: "Header",
   render: function () {
     return (
-      React.createElement("header", null, "I am a header.")
+      React.createElement("header", null, 
+        React.createElement(Navigation, null)
+      )
     );
   }
 });
 
 module.exports = Header;
+
+
+},{"components/Navigation.js":"c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\Navigation.js","react":"c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\node_modules\\react\\react.js"}],"c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\Navigation.js":[function(require,module,exports){
+var React = require('react');
+
+var Navigation = React.createClass({displayName: "Navigation",
+  render: function () {
+    return (
+      React.createElement("nav", {role: "navigation"}, 
+        React.createElement("ul", null, 
+          React.createElement("li", null, React.createElement("a", null, "Work")), 
+          React.createElement("li", null, React.createElement("a", null, "About")), 
+          React.createElement("li", null, React.createElement("a", null, "Play")), 
+          React.createElement("li", null, React.createElement("a", null, "Contact"))
+        )
+      )
+    );
+  }
+});
+
+module.exports = Navigation;
 
 
 },{"react":"c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\node_modules\\react\\react.js"}],"c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\about\\AboutSection.js":[function(require,module,exports){
@@ -18884,7 +18909,9 @@ var Work = React.createClass({displayName: "Work",
   render: function () {
     return (
       React.createElement("figure", null, 
-        React.createElement("h3", null, this.props.work.name), 
+        React.createElement("a", {href: "#"}, 
+          React.createElement("img", {src: this.props.work.img})
+        ), 
 
         React.createElement("figcaption", null, this.props.work.description)
       )
@@ -18926,7 +18953,7 @@ var WorkList = React.createClass({displayName: "WorkList",
     var work_list = this.getWorkList();
 
     return (
-      React.createElement("ul", null, 
+      React.createElement("ul", {className: "medium-block-grid-3"}, 
         work_list
       )
     );
@@ -18979,12 +19006,16 @@ var WorkSection = React.createClass({displayName: "WorkSection",
 
     return (
       React.createElement("section", {id: "work"}, 
-        React.createElement("h2", null, "Featured Work"), 
-        React.createElement("h3", null, "Work—Fun—Code"), 
+        React.createElement("div", {className: "row"}, 
+          React.createElement("div", {className: "columns"}, 
+            React.createElement("h2", null, "Featured Work"), 
+            React.createElement("h3", null, "Work—Fun—Code"), 
 
-        React.createElement(WorkList, {limit: this.state.limit}), 
+            React.createElement(WorkList, {limit: this.state.limit}), 
 
-        show_all_button
+            show_all_button
+          )
+        )
       )
     );
   },
@@ -19011,4 +19042,4 @@ var WorkSection = React.createClass({displayName: "WorkSection",
 module.exports = WorkSection;
 
 
-},{"components/work/WorkList.js":"c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\work\\WorkList.js","react":"c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\node_modules\\react\\react.js"}]},{},["c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\app.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\common\\shuffle.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\App.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\Footer.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\Header.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\about\\AboutSection.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\contact\\Contact.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\contact\\ContactList.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\contact\\ContactSection.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\curiosity\\Curiosity.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\curiosity\\CuriosityList.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\curiosity\\CuriositySection.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\introduction\\Introduction.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\play\\Play.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\play\\PlayList.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\play\\PlaySection.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\technology\\Technology.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\technology\\TechnologyList.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\technology\\TechnologySection.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\work\\Work.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\work\\WorkList.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\work\\WorkSection.js"]);
+},{"components/work/WorkList.js":"c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\work\\WorkList.js","react":"c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\node_modules\\react\\react.js"}]},{},["c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\app.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\common\\shuffle.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\App.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\Footer.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\Header.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\Navigation.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\about\\AboutSection.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\contact\\Contact.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\contact\\ContactList.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\contact\\ContactSection.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\curiosity\\Curiosity.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\curiosity\\CuriosityList.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\curiosity\\CuriositySection.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\introduction\\Introduction.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\play\\Play.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\play\\PlayList.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\play\\PlaySection.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\technology\\Technology.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\technology\\TechnologyList.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\technology\\TechnologySection.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\work\\Work.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\work\\WorkList.js","c:\\Users\\Carey Hinoki\\git\\careyhinoki.me-react\\src\\js\\components\\work\\WorkSection.js"]);
