@@ -27,8 +27,14 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', 'Running development tasks…', [
     'clean',
+    'build:style',
     'browserify',
-    'copy'
+    'copy',
+    'imagemin'
+  ]);
+
+  grunt.registerTask('build:style', 'Running style tasks…', [
+    'compass'
   ]);
 
   grunt.registerTask('pages', 'Running pages tasks…', [

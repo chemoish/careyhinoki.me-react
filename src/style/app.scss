@@ -1,0 +1,15 @@
+@charset 'UTF-8';
+
+// include css3 mixins
+@import 'compass/css3';
+@import 'compass/typography/text/ellipsis';
+@import 'compass/utilities';
+
+@import 'mixins';
+
+@import 'colors';
+@import 'font-size';
+@import 'font-weight';
+@import 'z-index';
+
+@import 'component/index';

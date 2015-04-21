@@ -130,7 +130,7 @@
     ],
     "website": "//www.giumarra.com/"
 }, {
-    "id": "global-finoncial-data",
+    "id": "global-financial-data",
     "name": "Global Financial Data",
     "img": "img/work/global-financial-data.png",
     "description": "Redeveloped a specialized system that tracks historical financial data.  Developed charts to discribe splits, dividends, ema, inflation, and more. Also developed screen scrapers that have accounted for tracking 17,000+ stock/indices.",

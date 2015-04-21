@@ -7,13 +7,23 @@ module.exports = function (grunt) {
       ]
     },
 
-    react: {
+    compass: {
       files: [
-        'src/*'
+        'src/style/**'
       ],
 
       tasks: [
-        'copy:app'
+        'compass:app'
+      ]
+    },
+
+    react: {
+      files: [
+        'src/bundle.js'
+      ],
+
+      tasks: [
+        'copy:react'
       ]
     },
 

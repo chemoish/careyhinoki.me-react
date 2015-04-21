@@ -1,0 +1,138 @@
+/**
+ * @name Utility
+ * @description
+ *
+ */
+
+// Border radius
+
+.u-no-radius-left
+{
+  @include border-bottom-left-radius(0 !important);
+  @include border-top-left-radius(0 !important);
+}
+
+.u-no-radius-right
+{
+  @include border-bottom-right-radius(0 !important);
+  @include border-top-right-radius(0 !important);
+}
+
+// Clear
+
+.u-clear-both
+{
+  clear: both;
+}
+
+.u-clear-left
+{
+  clear: left;
+}
+
+.u-clear-right
+{
+  clear: right;
+}
+
+// Clearfix
+
+.u-clearfix:before,
+.u-clearfix:after
+{
+  content: " ";
+  display: table;
+}
+
+.u-clearfix:after
+{
+  clear: both;
+}
+
+// Display
+
+.u-hide
+{
+  display: none;
+}
+
+// Font
+
+.u-antialiased
+{
+  -webkit-font-smoothing:  antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// List (ul, ol, dl)
+
+.u-no-bullet
+{
+  list-style:   none;
+  margin:       0;
+  padding-left: 0;
+}
+
+.u-no-bullet-space
+{
+  list-style:   none;
+  padding-left: 0;
+}
+
+// Position
+
+.u-left
+{
+  float: left !important;
+}
+
+.u-right
+{
+  float: right !important;
+}
+
+// Text alignment
+
+.u-text-center
+{
+  text-align: center !important;
+}
+
+.u-text-justify
+{
+  text-align: justify !important;
+}
+
+.u-text-left
+{
+  text-align: left !important;
+}
+
+.u-text-right
+{
+  text-align: right !important;
+}
+
+// Text color
+
+.u-text-offset
+{
+  color: $gray;
+}
+
+// Text transform
+
+.u-text-capitalize
+{
+  text-transform: capitalize !important;
+}
+
+.u-text-lowercase
+{
+  text-transform: lowercase !important;
+}
+
+.u-text-uppercase
+{
+  text-transform: uppercase !important;
+}

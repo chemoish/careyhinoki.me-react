@@ -14,12 +14,16 @@ var WorkSection = React.createClass({
 
     return (
       <section id="work">
-        <h2>Featured Work</h2>
-        <h3>Work&mdash;Fun&mdash;Code</h3>
+        <div className="row">
+          <div className="columns">
+            <h2>Featured Work</h2>
+            <h3>Work&mdash;Fun&mdash;Code</h3>
 
-        <WorkList limit={this.state.limit} />
+            <WorkList limit={this.state.limit} />
 
-        {show_all_button}
+            {show_all_button}
+          </div>
+        </div>
       </section>
     );
   },

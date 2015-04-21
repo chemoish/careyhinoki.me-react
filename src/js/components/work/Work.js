@@ -4,7 +4,9 @@ var Work = React.createClass({
   render: function () {
     return (
       <figure>
-        <h3>{this.props.work.name}</h3>
+        <a href="#">
+          <img src={this.props.work.img} />
+        </a>
 
         <figcaption>{this.props.work.description}</figcaption>
       </figure>

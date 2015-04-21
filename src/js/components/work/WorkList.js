@@ -28,7 +28,7 @@ var WorkList = React.createClass({
     var work_list = this.getWorkList();
 
     return (
-      <ul>
+      <ul className="medium-block-grid-3">
         {work_list}
       </ul>
     );
